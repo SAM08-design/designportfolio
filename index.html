@@ -11,8 +11,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: #000000;
+            color: #ff9100;
             line-height: 1.6;
         }
         h1, h2, h3 {
@@ -26,8 +26,8 @@
         }
         /* Header */
         header {
-            background-color: #1f1f1f;
-            color: white;
+            background-color: #ff9100;
+            color: rgb(0, 0, 0);
             padding: 1.5em 0;
             text-align: center;
         }
@@ -90,7 +90,7 @@
             margin-top: 2em;
         }
         .project {
-            background-color: white;
+            background-color: rgb(255, 201, 51);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
@@ -108,7 +108,7 @@
         .project-details h3 {
             margin: 0 0 0.5em;
             font-size: 1.5em;
-            color: #007acc;
+            color: #003b42;
         }
         .project-details p {
             font-size: 1em;
@@ -138,22 +138,117 @@
         footer {
             text-align: center;
             padding: 2em 0;
-            background-color: #1f1f1f;
-            color: white;
+            background-color: #ff9100;
+            color: black;
             margin-top: 2em;
         }
         footer p {
             margin: 0;
             font-size: 1em;
         }
+
+        nav a {
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background-color: #007acc;
+    color: white;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+nav a:hover {
+    background-color: #005999;
+    color: #fff;
+    transform: scale(1.05);
+}
+nav a::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    top: -100%;
+    left: -10%;
+    background: #fff;
+    opacity: 0.2;
+    transform: rotate(45deg);
+    transition: top 0.3s ease;
+}
+nav a:hover::before {
+    top: 100%;
+}
+
     </style>
 </head>
 <body>
 
     <!-- Header -->
     <header>
-        <h1>SAM Designs Portfolio</h1>
+        <h1 class="portfolio-title">Sam Design Portfolio</h1>
+        <button id="theme-toggle">Toggle Theme</button>
     </header>
+    
+    <script>
+        const toggleButton = document.getElementById("theme-toggle");
+        toggleButton.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+    
+    <style>
+        /* General Styles */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Space between title and button */
+            padding: 1em;
+            background-color: #ff9100;
+            color: #000;
+            position: relative;
+        }
+    
+        .portfolio-title {
+            flex-grow: 1; /* Title takes up available space */
+            text-align: center; /* Center-align the title */
+            font-size: 2.5em;
+            margin: 0;
+            color: #000;
+        }
+    
+        #theme-toggle {
+            margin: 0; /* Remove default margins */
+            padding: 0.5em 1em; /* Add padding for a better appearance */
+            background-color: #007acc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        #theme-toggle:hover {
+            background-color: #005999;
+        }
+    
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+    
+        .dark-mode header {
+            background-color: #333333;
+            color: #ffffff;
+        }
+    
+        .dark-mode .portfolio-title {
+            color: #ffffff;
+        }
+    </style>
+    
+
+
+    
 
     <!-- Navigation -->
     <nav>
@@ -173,6 +268,36 @@
                 <p>Hi, I'm Samar, a passionate graphic designer specializing in creating YouTube thumbnails, branding designs, and visual content. Check out my work below and feel free to reach out for collaborations!</p>
             </div>
         </section>
+
+        <section id="skills" class="skills">
+            <h2>My Skills</h2>
+            <div class="skill">
+                <label for="design">Thumbnail Design</label>
+                <progress id="design" value="90" max="100"></progress>
+            </div>
+            <div class="skill">
+                <label for="branding">Social Media Posts</label>
+                <progress id="branding" value="80" max="100"></progress>
+            </div>
+        </section>
+        
+        <style>
+            .skills progress {
+                width: 100%;
+                height: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            .skills progress::-webkit-progress-bar {
+                background-color: #ddd;
+            }
+            .skills progress::-webkit-progress-value {
+                background-color: #007acc;
+            }
+            
+        </style>
+        
+        
 
         <!-- Projects Section -->
         <section id="projects">
@@ -202,6 +327,15 @@
                     <div class="project-details">
                         <h3>Graphic Designer Thumbnail</h3>
                         <p>Graphic Designer Thumbnail designed for personal use.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project">
+                    <img src="GPT.jpg" alt="Boost Productivity">
+                    <div class="project-details">
+                        <h3>Boost Productivity</h3>
+                        <p>A thumbnail design concept for boosting productivity with 10 easy morning habits.</p>
                     </div>
                 </div>
 
@@ -459,11 +593,13 @@
 
             </div>
         </section> 
+        
 
         <!-- Contact Section -->
         <section id="contact" class="contact">
             <h2>Contact</h2>
             <p>If you'd like to work with me or have any inquiries, drop me an email at: <a href="mailto:samdesigns1217@gmail.com">samdesigns1217@gmail.com</a></p>
+        
         </section>
 
         <a href="https://www.instagram.com/_sam_design.x/?hl=en" target="blank">
